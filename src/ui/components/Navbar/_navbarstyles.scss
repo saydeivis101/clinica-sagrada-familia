@@ -1,8 +1,27 @@
+@import '/src/styles/base/variables';
 
+i{
+  color:$color;
+}
 .hero{
     .nav__main{
         display:grid;
         grid-template-rows: 3.5rem 1fr;
+        @media screen and (max-width:760px){
+          display:flex;
+          justify-content: space-between;
+          .nav__options{
+            &{
+              display: flex;
+              li{
+                margin-left:auto;
+                margin-right: 2rem;
+                font-size: 2rem;
+                cursor: pointer;
+              }
+            }
+          }
+        }
         img.logo_brand{
             width: 12rem;
             margin-top:1rem;
@@ -12,20 +31,86 @@
             display:flex;
             justify-content: space-around;
             margin-top:2rem;
+            @media screen and (max-width:760px){
+              display:none;
+              &.active{
+                display:flex;
+                position: absolute;
+                z-index: 10;
+                background-color: $background-color;
+                width: 100%;
+                margin-top:0;
+              }
+              a{
+                display:block;
+                width: 100%;
+              }
+            }
             li{
-                text-transform: uppercase;
-                font-size: 0.8rem;
-            
-                a{
-                  color:black;
+              text-transform: uppercase;
+              font-size: 0.8rem;
+              }
+
+
+              a{
+                  display:inline-block;
+                  padding: 1rem;  
+                  color:$color;
+                  &:hover{
+                    background-color: $hover;
+                    color:$background-color;
+                  }
                 }
             }
+            li{
+              .dropdown{
+                display:inline-block;
+                .dropdown-menu{
+                  .dropdown-item{
+                    border-bottom:1px solid $color;
+                  }
+                }
+              }
+              
+              button{
+                padding:1rem;
+                background-color: $background-color;
+                color:$color;
+                border:0;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+
+              }
+              button:hover{
+                background-color: $hover;
+                color:$background-color;
+
+              }
+            }
+        }
+
+        .nav__options{
+          display:none;
+          @media screen and (max-width:760px){
+            &{
+              display: flex;
+              li{
+                margin-left:auto;
+                margin-right: 2rem;
+                font-size: 2rem;
+                cursor: pointer;
+                position: relative;
+                z-index: 20;
+              }
+            }
+          }
         }
     }
-}
 
-
-
+    .active{
+      display:flex;
+      flex-direction: column;
+    }
 
 /* 
 
@@ -36,7 +121,7 @@
           <li><a href="">Nosotros</a></li>
           <li><a href="">Directorio Médico</a></li>
           <li><a href="">Unidades de Diagnostico y Servicio</a></li>
-          <li><a href="">Red de Clinicas</a></li>
+          <li><a href="">$hover de Clinicas</a></li>
           <li><a href="">Convenios</a></li>
           <li><a href="">Contactos</a></li>
         </ul>

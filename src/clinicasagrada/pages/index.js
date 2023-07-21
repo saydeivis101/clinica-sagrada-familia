@@ -1,1 +1,3 @@
+/* PAGES */
 export * from './HomePage';
+

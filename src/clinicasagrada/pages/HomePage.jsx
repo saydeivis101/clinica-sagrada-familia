@@ -1,6 +1,7 @@
+import { SliderComponent } from "../";
 
 export const HomePage = () => {
   return (
-    <h1>HomePage</h1>
+    <SliderComponent/>
   )
 }
